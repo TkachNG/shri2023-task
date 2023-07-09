@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "vite build",
-    "babel": "./node_modules/.bin/babel vendors --out-dir dist --presets=@babel/preset-react"
+    "babel": "./node_modules/.bin/babel vendors --out-dir dist --presets=@babel/preset-react",
+    "build": "npm run build_webpack && npm run validate && rm -rf stats.json",
+    "build_webpack": "webpack --mode=production --node-env=production"
   },
   "repository": {
     "type": "git",
@@ -20,10 +21,30 @@
   "homepage": "https://github.com/TkachNG/shri2023-task#readme",
   "devDependencies": {
     "@babel/cli": "^7.22.6",
-    "@babel/core": "^7.22.6",
-    "@babel/preset-env": "^7.22.6",
+    "@babel/core": "^7.22.8",
+    "@babel/preset-env": "^7.22.7",
     "@babel/preset-react": "^7.22.5",
     "babel-cli": "^6.26.0",
-    "babel-minify": "^0.5.2"
+    "babel-loader": "^9.1.3",
+    "babel-minify": "^0.5.2",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "html-inline-css-webpack-plugin": "^1.11.1",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env",
+      "@babel/react"
+    ]
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
