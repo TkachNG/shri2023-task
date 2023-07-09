@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
 const TerserPlugin = require('terser-webpack-plugin');
+const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
 
 // @todo загрузить переводы из файла
 
@@ -47,6 +48,7 @@ const config = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'vendors/index.html')
         }),
+        new HtmlInlineScriptPlugin()
     ],
     resolve: {
         extensions: ['.js'],
