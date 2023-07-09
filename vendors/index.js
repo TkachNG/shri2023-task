@@ -359,7 +359,7 @@ function Main() {
     </main>;
 }
 
-document.onload(() => {
+window.addEventListener("load", (event) => {
     const root = ReactDOM.createRoot(document.getElementById('app'));
     root.render(
         <>
