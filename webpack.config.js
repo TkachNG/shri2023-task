@@ -1,10 +1,9 @@
 const path = require('path')
-const webpack = require('webpack')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
-
+const TerserPlugin = require('terser-webpack-plugin');
 
 // @todo загрузить переводы из файла
 
@@ -65,6 +64,7 @@ const config = {
                 },
                 minify: CssMinimizerPlugin.cleanCssMinify,
             }),
+            new TerserPlugin({ parallel: true })
         ],
     },
 };
